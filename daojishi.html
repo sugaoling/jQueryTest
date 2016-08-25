@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+<h1>倒计时:<span>10</span></h1>
+</body>
+<script type="text/javascript">
+$(function () {
+    var element=$('h1 span');
+    var i=9;
+    var interval=setInterval(function () {
+        element.html(i);
+        i--;
+        console.log(i);
+        console.info(i);
+        console.debug(i);
+        console.warn(i);
+        console.warn(i);
+        console.error(i);
+        if(i<0){
+            clearInterval(interval);
+        }
+    },1000)
+})
+</script>
+</html>
