@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格展开关闭</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .parent{
+            background-color: #67b168;
+        }
+        .selected{
+            background-color: #ee2222;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            /*$("tbody>tr:even").addClass('even');
+            $("tbody>tr:odd").addClass('odd');*/
+            /*$("tr:contains('小矮人5')").addClass('selected');*/
+            $('tr.parent').click(function () {
+                $(this).toggleClass('selected')
+                        .siblings('.child_'+this.id).toggle();
+            }).click();
+        })
+    </script>
+</head>
+<body>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>姓名</th><th>性别</th><th>年龄</th><th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="parent" id="row01"><td colspan="4">前台设计组</td></tr>
+        <tr class="child_row01"><td>白雪公主</td><td>女</td><td>18</td><td>城堡</td></tr>
+        <tr class="child_row01"><td>小矮人</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr class="parent" id="row02"><td colspan="4">前台开发组</td></tr>
+        <tr class="child_row02"><td>孙悟空</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr class="child_row02"><td>诸葛亮</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr class="parent" id="row03"><td colspan="4">后台开发组</td></tr>
+        <tr class="child_row03"><td>月亮</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr class="child_row03"><td>太阳</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr class="child_row03"><td>星星</td><td>男</td><td>8</td><td>山洞</td></tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

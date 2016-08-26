@@ -1,0 +1,10 @@
+@charset "utf-8";
+.container{
+    width: 50%;
+    height: 80%;
+    text-align: center;
+    border: 1px solid #666666;
+    float: left;
+    margin-left: 300px;
+    margin-top:100px;
+}

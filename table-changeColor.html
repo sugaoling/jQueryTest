@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格变色</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .even{
+            background-color: #fff38f;
+        }
+        .odd{
+            background-color: #ffffee;
+        }
+        .selected{
+            background-color: #ee2222;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("tbody>tr:even").addClass('even');
+            $("tbody>tr:odd").addClass('odd');
+            $("tr:contains('小矮人5')").addClass('selected');
+        })
+    </script>
+</head>
+<body>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>姓名</th><th>性别</th><th>年龄</th><th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>白雪公主</td><td>女</td><td>18</td><td>城堡</td>
+        </tr>
+        <tr><td>小矮人1</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人2</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人3</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人4</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人5</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人6</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td>小矮人7</td><td>男</td><td>8</td><td>山洞</td></tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

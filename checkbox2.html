@@ -20,13 +20,30 @@
     $(function () {
         $('#checkAll').click(function () {
             /*if(this.checked){
-                $("[name=items]:checkbox").attr('checked',true);
+                $("[name=items]:checkbox").prop('checked',true);
             }else{
-                $("[name=items]:checkbox").attr('checked',false);
+                $("[name=items]:checkbox").prop('checked',false);
             }*/
 
-            $('[name=items]:checkbox').attr('checked',this.checked);
+            $('[name=items]:checkbox').prop('checked',this.checked);
         });
+        //当复选框里有一个没有选中时，取消全选状态
+
+        $('[name=items]:checkbox').click(function () {
+            //思路一
+            /*var flag=true;
+            $('[name=items]:checkbox').each(function () {
+                if(!this.checked){
+                    flag=false;
+                }
+            });
+            $('#checkAll').prop('checked',flag);*/
+            //思路二 判断复选框选中个数是否与复选框个数相等,用filter()方法筛选出选中的复选框，并直接给checkALL防护值
+            var $tmp=$('[name=items]:checkbox');
+            $('#checkAll').prop('checked',$tmp.length==$tmp.filter(':checked').length);
+        });
+
+
     })
 </script>
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .init label{
+            width: 30px;
+            text-align: right;
+        }
+        .high{
+            color: red;
+            font-size: smaller;
+        }
+
+        .onError{
+            color: #e22;
+            font-size: 12px;
+        }
+        .onSuccess{
+            color: green;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+<body>
+
+        <form class="post" action="#">
+            <fieldset>
+                <legend>表单验证练习</legend>
+                <div class="init">
+                    <label for="username">用 户 名:</label>
+                    <input type="text" id="username" class="required">
+                </div>
+                <div class="init">
+                    <label for="email">邮     箱:</label>
+                    <input type="text" id="email" class="required">
+                </div>
+                <div class="init">
+                    <label for="personInfo">个人资料:</label>
+                    <input type="text" id="personInfo" class="required">
+                </div>
+                <div class="sub">
+                    <input type="submit" value="提交" id="send">
+                    <input type="reset" id="res">
+                </div>
+            </fieldset>
+        </form>
+
+
+</body>
+<script type="text/javascript">
+    $(function () {
+        ////遍历class="required"的元素，即必填元素，并为其添加一个红色的*
+        $("form :input.required").each(function () {
+            var $required=$("<strong class='high'>*</strong>");
+            $(this).parent().append($required);
+        });
+        //用户名校验长度不小于6   邮箱校验
+        $('form :input').blur(function () {
+            var $parent=$(this).parent();
+            //为表单添加失去焦点的事件
+            $parent.find('.formtips').remove();
+            //验证用户名
+            if($(this).is("#username")){
+                if(this.value==""||this.value.length<6){
+                    var errorMsg="请输入至少六位的用户名";
+                    $parent.append("<span class='formtips onError'>"+errorMsg+"</span>");
+                }else{
+                    var okMsg='输入正确';
+                    $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                }
+            }
+            if($(this).is('#email')){
+                if(this.value==""||this.value!=""&&!/.+@.+\.[a-zA-Z]{2,4}/.test(this.value)){
+               /* if (this.value == "" || (this.value != "" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value))) {*/
+                    var errorMsg="请输入正确的Email地址";
+                    $parent.append("<span class='formtips onError'>"+errorMsg+"</span>");
+                }else{
+                    var okMsg='输入正确';
+                    $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                }
+            }
+        }).keyup(function () {
+            $(this).triggerHandler('blur');
+        }).focus(function () {
+            $(this).triggerHandler('blur');
+        });
+        //提交
+        $('#send').click(function () {
+            $('form .required:input').trigger('blur');
+            var num=$('form .onError').length;
+            if(num){
+                return false;
+            }
+            alert("注册成功，密码已发到你的邮箱请注意查收！");
+        });
+        //重置
+        $('#res').click(function () {
+            $('.formtips').remove();
+        })
+    })
+</script>
+</html>

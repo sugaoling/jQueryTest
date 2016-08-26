@@ -21,14 +21,14 @@
 <script type="text/javascript">
     $(function () {
         $('#checkAll').click(function () {
-            $('[name=items]:checkbox').attr('checked',true);
+            $('[name=items]:checkbox').prop('checked',true);
         });
         $('#checkNo').click(function () {
-            $('[name=items]:checkbox').attr('checked',false);
+            $('[name=items]:checkbox').prop('checked',false);
         });
         $('#checkReverse').click(function () {
             $('[name=items]:checkbox').each(function () {
-                /*$(this).attr("checked",!$(this).attr("checked"));*/
+                /*$(this).attr("checked",!$(this).prop("checked"));*/
                 this.checked=!this.checked;
             });
         });

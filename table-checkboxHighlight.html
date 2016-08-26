@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框控制表格高亮</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .even{
+            background-color: #fff38f;
+        }
+        .odd{
+            background-color: #ffffee;
+        }
+        .selected{
+            background-color: #ee2222;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("tbody>tr:even").addClass('even');
+            $("tbody>tr:odd").addClass('odd');
+            //将默认选中的提亮
+            $('table>tr:has(:checked)').addClass('selected');
+            //当选中某行时，将其提亮，并且可以多行选中提亮，如果已提亮，则取消提亮和选中
+            //思路一
+            /*$('tbody>tr').click(function () {
+                if($(this).hasClass('selected')){
+                    $(this).removeClass('selected').find(':checkbox').attr('checked',false);
+                }else{
+                    $(this).addClass('selected');
+                }
+            })*/
+            //思路二
+            $('tbody>tr').click(function () {
+                //判断当前是否选中
+                var hasSelected=$(this).hasClass('selected');
+                //如果选中，则移出selected类，否则就加上selected类；查找内部的checkbox，设置对应的属性
+                $(this)[hasSelected?'removeClass':'addClass']('selected')
+                .find(':checkbox').attr('checked',!hasSelected);
+            })
+        })
+    </script>
+</head>
+<body>
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th><th>姓名</th><th>性别</th><th>年龄</th><th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td><input type="checkbox"></td><td>白雪公主</td><td>女</td><td>18</td><td>城堡</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人1</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人2</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人3</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人4</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人5</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人6</td><td>男</td><td>8</td><td>山洞</td></tr>
+        <tr><td><input type="checkbox"></td><td>小矮人7</td><td>男</td><td>8</td><td>山洞</td></tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
