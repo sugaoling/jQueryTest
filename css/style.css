@@ -1,10 +1,11 @@
 @charset "utf-8";
-.container{
-    width: 50%;
-    height: 80%;
-    text-align: center;
-    border: 1px solid #666666;
-    float: left;
-    margin-left: 300px;
-    margin-top:100px;
-}
+*{  margin: 0px;
+    padding:0px;  }
+body{  font:12px/19px Arial,Helvetica,sans-serif;color: #666666 ;  }
+.tab{  width: 240px;  margin: 50px;  }
+.tab_menu{  clear:both;  }
+.tab_menu li{  float: left;text-align: center;cursor: pointer;list-style: none;  padding: 1px 6px;margin-right: 4px;background-color: #F1F1F1;  border: 1px solid #898989;border-bottom: none;  }
+.tab_menu li.hover{  background-color: #DFDFDF;  }
+.tab_menu li.selected{  color: #FFF;  background-color: #6D84B4;  }
+.tab_box{  clear: both;  border: 1px solid #898989;  height: 100px;  }
+.hide{  display: none  }

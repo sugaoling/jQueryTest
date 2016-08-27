@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页字体大小-放大缩小</title>
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .msg{
+            border: 1px solid #666;
+            width: 50%;
+        }
+        span{
+            cursor: pointer;
+        }
+        .bigger,.smaller{
+            background-color: blueviolet;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div class="msg">
+    <div class="msg_caption">
+        <span class="bigger">放大</span>
+        <span class="smaller">缩小</span>
+    </div>
+    <div>
+        <p id="para">
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+            心不清则无以见道，志不确则无以定功。--林逋
+        </p>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+
+        $('span').click(function () {
+            //获取字体大小，带有单位px
+            var fontSize=$('#para').css('font-size');
+            //获取字体数值大小
+            var textSize=parseInt(fontSize,10);
+            //获取单位,从倒数第二位开始取数
+            var unit=fontSize.slice(-2);
+            //获取样式
+            var cname=$(this).attr('class');
+            if(cname=="bigger"){
+                if(textSize<=22){
+                    textSize +=2;
+                }
+            }else if(cname=="smaller"){
+                if(textSize>=12){
+                    textSize -=2;
+                }
+            }
+            $('#para').css('font-size',textSize+unit);
+        })
+    })
+</script>
+</html>

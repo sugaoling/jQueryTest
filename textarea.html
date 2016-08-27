@@ -43,6 +43,7 @@
         $(".bigger").click(function () {
             if(!$comment.is(":animated")){
                 if($comment.height()<500){
+                    console.log($comment.height());
                     /*$comment.height($comment.height()+50);*//*评论框变化效果呆板*/
                     $comment.animate({height:"+=50"},400);
                 }

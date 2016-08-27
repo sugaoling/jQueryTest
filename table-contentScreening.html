@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格变色</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <style type="text/css">
+        .even{
+            background-color: #fff38f;
+        }
+        .odd{
+            background-color: #ffffee;
+        }
+        .selected{
+            background-color: #ee2222;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            $("tbody>tr:even").addClass('even');
+            $("tbody>tr:odd").addClass('odd');
+            /*$("tr:contains('小矮人5')").addClass('selected');*/
+            //筛选出包含“白”的行
+           /* $('table tbody tr').hide().filter(":contains('白')").show();*/
+            $('#filterName').keyup(function () {
+                var text=$(this).val();
+                $("table tbody tr").hide().filter(":contains('"+text+"')").show();
+            }).keyup();
+        })
+    </script>
+</head>
+<body>
+    <div>
+        筛选:<input type="text" id="filterName">
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>姓名</th><th>年龄</th><th>暂住地</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>白雪公主</td><td>18</td><td>城堡</td>
+        </tr>
+        <tr><td>小矮人</td><td>8</td><td>山洞</td></tr>
+        <tr><td>龙猫</td><td>8</td><td>山洞</td></tr>
+        <tr><td>哈尔</td><td>8</td><td>大海</td></tr>
+        <tr><td>白云</td><td>8</td><td>天空</td></tr>
+        <tr><td>水流</td><td>8</td><td>长江</td></tr>
+        <tr><td>大熊猫</td><td>8</td><td>四川</td></tr>
+        <tr><td>长颈鹿</td><td>8</td><td>非洲</td></tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -19,6 +19,7 @@
             /*$("tbody>tr:even").addClass('even');
             $("tbody>tr:odd").addClass('odd');*/
             /*$("tr:contains('小矮人5')").addClass('selected');*/
+            //点击分类行，可以关闭或展开相应内容
             $('tr.parent').click(function () {
                 $(this).toggleClass('selected')
                         .siblings('.child_'+this.id).toggle();

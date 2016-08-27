@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页选项卡</title>
+ <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $tab_li=$('.tab_menu li');
+            $tab_li.click(function () {
+                //当前高亮，去掉其它同辈高亮
+                $(this).addClass('selected').siblings().removeClass('selected');
+                //求当前元素索引值
+                var index=$tab_li.index(this);
+                //选取子节点
+                $('.tab_box>div').eq(index).show().siblings().hide();
+            }).hover(function () {//添加光标滑入划出效果
+                $(this).addClass('hover');
+            },function () {
+                $(this).removeClass('hover');
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="tab">
+    <div class="tab_menu">
+        <ul>
+            <li class="selected">时事</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+    </div>
+    <div class="tab_box">
+        <div>时事时事时事时事时事时事时事</div>
+        <div class="hide">体育体育体育体育体育体育</div>
+        <div class="hide">娱乐娱乐娱乐娱乐娱乐娱乐</div>
+    </div>
+</div>
+</body>
+</html>
